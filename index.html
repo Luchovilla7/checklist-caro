@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¿Esta canción es adecuada? — Own Your Voice</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:wght@400;600&display=swap"
+    rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Playfair Display', serif;
+      background: #f5f0f0;
+      color: #1a0505;
+    }
+
+    .doc {
+      width: 210mm;
+      margin: 0 auto;
+      background: #fff;
+    }
+
+    .bebas {
+      font-family: 'Bebas Neue', sans-serif;
+    }
+
+    .page {
+      width: 100%;
+      padding: 3rem 3rem 2.5rem;
+      border-bottom: 3px solid #A80D2E;
+      position: relative;
+      background: #fff;
+      page-break-after: always;
+    }
+
+    .page:last-of-type {
+      border-bottom: none;
+      page-break-after: auto;
+    }
+
+    .logo-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #e8c8c8;
+    }
+
+    .logo-text {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 16px;
+      color: #A80D2E;
+      letter-spacing: 2px;
+    }
+
+    .logo-sub {
+      font-size: 10px;
+      color: #b87070;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .logo-right {
+      margin-left: auto;
+      font-size: 11px;
+      color: #b87070;
+      letter-spacing: 2px;
+      font-family: 'Bebas Neue', sans-serif;
+    }
+
+    .vsym {
+      width: 28px;
+      height: 28px;
+    }
+
+    .page-tag {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #A80D2E;
+      margin-bottom: 0.6rem;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .cover-badge {
+      position: absolute;
+      top: 3rem;
+      right: 3rem;
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      background: #A80D2E;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .badge-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px;
+      color: #fff;
+      line-height: 1;
+    }
+
+    .badge-lbl {
+      font-size: 9px;
+      color: #f9d0d0;
+      letter-spacing: 1px;
+      text-align: center;
+    }
+
+    .hero-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 4.2rem;
+      line-height: 1;
+      color: #1a0505;
+      margin: 0 0 0.6rem;
+    }
+
+    .hero-title span {
+      color: #A80D2E;
+    }
+
+    .hero-sub {
+      font-size: 14px;
+      color: #6b3a3a;
+      line-height: 1.7;
+      max-width: 460px;
+      margin-bottom: 1.75rem;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 1.75rem;
+    }
+
+    .pill {
+      background: #fff0f0;
+      border: 1px solid #f0b0b0;
+      color: #A80D2E;
+      font-size: 12px;
+      padding: 4px 14px;
+      border-radius: 20px;
+    }
+
+    .divider {
+      height: 1px;
+      background: #f0d0d0;
+      margin: 1.25rem 0;
+    }
+
+    .muted {
+      font-size: 13px;
+      color: #b87070;
+      font-style: normal;
+    }
+
+    .intro-pull {
+      font-size: 1.5rem;
+      font-family: 'Bebas Neue', sans-serif;
+      color: #A80D2E;
+      letter-spacing: 1px;
+      margin-bottom: 1.25rem;
+      line-height: 1.2;
+    }
+
+    .intro-quote {
+      font-size: 1.1rem;
+      color: #A80D2E;
+      margin-bottom: 1.25rem;
+    }
+
+    .intro-text {
+      font-size: 14px;
+      line-height: 1.85;
+      color: #3a1a1a;
+      margin-bottom: 1rem;
+      font-style: normal;
+    }
+
+    .intro-text strong {
+      color: #1a0505;
+      font-weight: 600;
+      font-style: normal;
+    }
+
+    .how-box {
+      background: #fff7f7;
+      border: 1px solid #f0c0c0;
+      border-left: 4px solid #A80D2E;
+      border-radius: 6px;
+      padding: 1rem 1.25rem;
+      margin-top: 1.25rem;
+    }
+
+    .how-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1rem;
+      letter-spacing: 2px;
+      color: #A80D2E;
+      margin-bottom: 0.5rem;
+    }
+
+    .how-text {
+      font-size: 13px;
+      color: #5a2a2a;
+      line-height: 1.7;
+    }
+
+    .how-opts {
+      display: flex;
+      gap: 10px;
+      margin-top: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .opt {
+      font-size: 12px;
+      padding: 4px 12px;
+      border-radius: 12px;
+      border: 1px solid;
+    }
+
+    .opt-si {
+      border-color: #A80D2E;
+      color: #A80D2E;
+      background: #fff0f0;
+    }
+
+    .opt-mm {
+      border-color: #c47a00;
+      color: #8a5500;
+      background: #fff8ee;
+    }
+
+    .opt-no {
+      border-color: #888;
+      color: #555;
+      background: #f5f5f5;
+    }
+
+    .ci {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid #fae8e8;
+    }
+
+    .ci:last-child {
+      border-bottom: none;
+    }
+
+    .ci-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      color: #A80D2E;
+      line-height: 1;
+      min-width: 30px;
+    }
+
+    .ci-body {
+      flex: 1;
+    }
+
+    .ci-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1a0505;
+      margin-bottom: 3px;
+    }
+
+    .ci-desc {
+      font-size: 12.5px;
+      color: #6b3a3a;
+      line-height: 1.65;
+      margin-bottom: 6px;
+      font-style: normal;
+    }
+
+    .ci-key {
+      font-size: 12px;
+      color: #A80D2E;
+      font-style: normal;
+    }
+
+    .ci-key::before {
+      content: "Pregunta clave: ";
+      color: #b87070;
+      font-style: normal;
+    }
+
+    .check-row {
+      display: flex;
+      gap: 7px;
+      margin-top: 7px;
+    }
+
+    .r-card {
+      background: #fff7f7;
+      border: 1px solid #f0c0c0;
+      border-radius: 8px;
+      padding: 1.1rem 1.4rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .r-head {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 0.5rem;
+    }
+
+    .r-range {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.2rem;
+      line-height: 1;
+    }
+
+    .r-green .r-range {
+      color: #A80D2E;
+    }
+
+    .r-amber .r-range {
+      color: #c47a00;
+    }
+
+    .r-gray .r-range {
+      color: #888;
+    }
+
+    .r-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #1a0505;
+    }
+
+    .r-sub {
+      font-size: 12px;
+      color: #b87070;
+    }
+
+    .r-text {
+      font-size: 13px;
+      color: #5a2a2a;
+      line-height: 1.7;
+    }
+
+    .r-tips {
+      list-style: none;
+      margin-top: 0.5rem;
+    }
+
+    .r-tips li {
+      font-size: 12px;
+      color: #6b3a3a;
+      padding: 2px 0;
+    }
+
+    .r-tips li::before {
+      content: "→ ";
+      color: #A80D2E;
+    }
+
+    .dq-box {
+      background: #fff0f0;
+      border-left: 4px solid #A80D2E;
+      border-radius: 0 6px 6px 0;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .dq-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1rem;
+      letter-spacing: 2px;
+      color: #A80D2E;
+      margin-bottom: 0.6rem;
+    }
+
+    .dq-text {
+      font-size: 13px;
+      color: #5a2a2a;
+      line-height: 1.8;
+    }
+
+    .dq-q {
+      font-size: 13px;
+      color: #3a1a1a;
+      padding: 3px 0;
+    }
+
+    .dq-q::before {
+      content: "· ";
+      color: #A80D2E;
+    }
+
+    .cta-block {
+      background: #A80D2E;
+      border-radius: 8px;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .cta-pre {
+      font-size: 11px;
+      letter-spacing: 3px;
+      color: #f9d0d0;
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+    }
+
+    .cta-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      color: #fff;
+      margin-bottom: 0.5rem;
+      line-height: 1.1;
+    }
+
+    .cta-text {
+      font-size: 13px;
+      color: #f9d0d0;
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+      max-width: 420px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background: #fff;
+      color: #A80D2E;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 2px;
+      padding: 12px 32px;
+      border-radius: 4px;
+      border: none;
+    }
+
+    .footer-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 1.25rem;
+      border-top: 1px solid #f0d0d0;
+      background: #fff;
+    }
+
+    .footer-text {
+      font-style: normal;
+      font-family: 'Playfair Display', serif;
+      font-size: 13px;
+      letter-spacing: 1px;
+      color: #b87070;
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .doc {
+        width: 100%;
+      }
+
+      .page {
+        page-break-after: always;
+        border-bottom: 3px solid #A80D2E;
+      }
+
+      .footer-bar {
+        page-break-after: avoid;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="doc">
+
+    <!-- PAGE 1: PORTADA -->
+    <div class="page">
+      <div class="cover-badge">
+        <div class="badge-num">10</div>
+        <div class="badge-lbl">criterios clave</div>
+      </div>
+
+      <div class="page-tag">Recurso gratuito para docentes</div>
+      <div class="hero-title">¿Esta canción<br>es <span>adecuada</span><br>para mi alumnx<br>o coro?</div>
+      <div class="hero-sub">Checklist de diagnóstico para docentes de canto, profesores de música y directores de coro
+        que quieren dejar de elegir repertorio "a ojo" y empezar a tomar decisiones pedagógicas seguras.</div>
+
+      <div class="pill-row">
+        <div class="pill">Voces infantiles</div>
+        <div class="pill">Preadolescentes</div>
+        <div class="pill">Adolescentes</div>
+        <div class="pill">Coros</div>
+      </div>
+
+      <div class="divider"></div>
+      <div class="muted">Empezá a tomar decisiones pedagógicas seguras — no intuitivas.</div>
+    </div>
+
+    <!-- PAGE 2: INTRODUCCIÓN -->
+    <div class="page">
+      <div class="logo-bar">
+        <svg class="vsym" viewBox="0 0 40 40" fill="none">
+          <circle cx="20" cy="20" r="19" stroke="#A80D2E" stroke-width="1.5" />
+          <path d="M12 13 L20 28 L28 13" stroke="#A80D2E" stroke-width="2" fill="none" stroke-linecap="round"
+            stroke-linejoin="round" />
+          <circle cx="20" cy="30" r="2" fill="#A80D2E" />
+        </svg>
+        <div class="logo-text">OWN YOUR VOICE</div>
+        <div class="logo-right">Introducción</div>
+      </div>
+
+      <div class="page-tag">Introducción</div>
+      <div class="intro-pull">Cuando trabajamos con infancias,<br>preadolescentes o adolescentes,<br>una de las primeras
+        preguntas que aparece es:</div>
+      <div class="intro-quote">"¿Qué les doy para cantar?"</div>
+
+      <div class="intro-text">Parece una pregunta simple, pero no lo es. Elegir repertorio para voces en desarrollo no
+        consiste solamente en buscar una canción linda, conocida, emotiva o motivadora. Una canción puede gustarle
+        muchísimo a un grupo o a unx alumnx y, aun así, no ser adecuada para el momento de su desarrollo vocal,
+        corporal, emocional o pedagógico.</div>
+
+      <div class="intro-text">Y acá aparece uno de los grandes desafíos para quienes enseñamos canto o música:
+        <strong>¿Cómo saber si una canción acompaña las posibilidades vocales del niñx/grupo… o le está pidiendo
+          demasiado?</strong>
+      </div>
+
+      <div class="intro-text">Muchas veces, cuando unx niñx o adolescente desafina, se cansa, fuerza su voz, pierde
+        interés o "no puede" con una canción, no significa que no tenga condiciones, oído o musicalidad. A veces,
+        simplemente, <strong>la canción no era adecuada para esa etapa del proceso.</strong></div>
+
+      <div class="intro-text">Este checklist fue creado para ayudarte a mirar el repertorio con más criterio pedagógico,
+        más seguridad y menos improvisación intuitiva. La idea no es que descartes canciones para siempre, sino que
+        puedas preguntarte: <strong>¿Esta canción es adecuada para este alumnx, este grupo, esta edad y este
+          momento?</strong></div>
+
+      <div class="how-box">
+        <div class="how-title">Cómo usar este checklist</div>
+        <div class="how-text">Antes de llevar una canción a tu clase, ensayo o propuesta coral, respondé estas 10
+          preguntas. Podés marcar cada criterio como:</div>
+        <div class="how-opts">
+          <span class="opt opt-si">✓ Sí — la canción cumple este criterio</span>
+          <span class="opt opt-mm">≈ Más o menos — podría funcionar con adaptación</span>
+          <span class="opt opt-no">✗ No — puede generar dificultad o frustración</span>
+        </div>
+        <div class="how-text" style="margin-top:0.6rem">Al final vas a encontrar una guía para interpretar el resultado.
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 3: CRITERIOS 1–5 -->
+    <div class="page">
+      <div class="logo-bar">
+        <svg class="vsym" viewBox="0 0 40 40" fill="none">
+          <circle cx="20" cy="20" r="19" stroke="#A80D2E" stroke-width="1.5" />
+          <path d="M12 13 L20 28 L28 13" stroke="#A80D2E" stroke-width="2" fill="none" stroke-linecap="round"
+            stroke-linejoin="round" />
+          <circle cx="20" cy="30" r="2" fill="#A80D2E" />
+        </svg>
+        <div class="logo-text">OWN YOUR VOICE</div>
+        <div class="logo-right">Checklist · Criterios 1–5</div>
+      </div>
+      <div class="page-tag">Checklist de diagnóstico</div>
+
+      <div class="ci">
+        <div class="ci-num">01</div>
+        <div class="ci-body">
+          <div class="ci-title">¿La melodía es adecuada para su etapa de desarrollo vocal?</div>
+          <div class="ci-desc">No toda melodía que una voz infantil o adolescente puede imitar es necesariamente
+            adecuada para su desarrollo. Prestá atención a si la canción tiene una melodía muy extensa o intervalos muy
+            amplios. Cuando una canción es demasiado compleja, pueden aparecer desafinaciones que no necesariamente
+            tienen que ver con "falta de oído", sino con una demanda excesiva sobre las posibilidades vocales de un
+            niñx/adolescente.</div>
+          <div class="ci-key">¿Esta melodía acompaña el desarrollo vocal o le exige a esa voz más de lo que hoy puede
+            gestionar?</div>
+          <div class="check-row"><span class="opt opt-si">✓ Sí</span><span class="opt opt-mm">≈ Más o menos</span><span
+              class="opt opt-no">✗ No</span></div>
+        </div>
+      </div>
+
+      <div class="ci">
+        <div class="ci-num">02</div>
+        <div class="ci-body">
+          <div class="ci-title">¿La exigencia técnica es razonable?</div>
+          <div class="ci-desc">Muchas canciones populares están pensadas para voces adultas y muy entrenadas. Observá si
+            la canción tiene notas sostenidas muy agudas o muy graves, notas demasiado largas, si hay que cantar a gran
+            volumen, cambios bruscos de registro, adornos, melismas o momentos de "lucimiento vocal" que pueden invitar
+            a imitar gestos vocales adultos.</div>
+          <div class="ci-key">¿Esta canción permite cantar con naturalidad o empuja a copiar una forma vocal adulta?
+          </div>
+          <div class="check-row"><span class="opt opt-si">✓ Sí</span><span class="opt opt-mm">≈ Más o menos</span><span
+              class="opt opt-no">✗ No</span></div>
+        </div>
+      </div>
+
+      <div class="ci">
+        <div class="ci-num">03</div>
+        <div class="ci-body">
+          <div class="ci-title">¿El ritmo puede ser comprendido y sostenido con comodidad?</div>
+          <div class="ci-desc">El ritmo también puede facilitar o dificultar el aprendizaje. Una canción con patrones
+            rítmicos muy complejos, síncopas constantes, cambios de compás o entradas difíciles puede hacer que toda la
+            atención se vaya a "sobrevivir" musicalmente, en lugar de disfrutar, explorar y aprender. Esto no quiere
+            decir que haya que evitar todo desafío rítmico, sino elegirlo con intención pedagógica.</div>
+          <div class="ci-key">¿El ritmo propone un desafío posible o genera una carga excesiva para este grupo o alumnx?
+          </div>
+          <div class="check-row"><span class="opt opt-si">✓ Sí</span><span class="opt opt-mm">≈ Más o menos</span><span
+              class="opt opt-no">✗ No</span></div>
+        </div>
+      </div>
+
+      <div class="ci">
+        <div class="ci-num">04</div>
+        <div class="ci-body">
+          <div class="ci-title">¿La velocidad permite cantar sin apuro ni tensión?</div>
+          <div class="ci-desc">Las canciones muy rápidas pueden resultar atractivas, pero también exigen una gran
+            coordinación. Para cantar a velocidad, el cuerpo, la respiración, la articulación, la memoria y la
+            organización vocal tienen que funcionar de manera integrada y coordinada. En infancias y adolescencias, esa
+            coordinación está en construcción y supone un riesgo de esforzarse mucho vocalmente. Si la canción obliga a
+            "correr" o respirar de manera apurada, probablemente necesite adaptación.</div>
+          <div class="ci-key">¿La velocidad permite cantar con comodidad, coordinación y disfrute?</div>
+          <div class="check-row"><span class="opt opt-si">✓ Sí</span><span class="opt opt-mm">≈ Más o menos</span><span
+              class="opt opt-no">✗ No</span></div>
+        </div>
+      </div>
+
+      <div class="ci">
+        <div class="ci-num">05</div>
+        <div class="ci-body">
+          <div class="ci-title">¿Hay tiempos cómodos para respirar?</div>
+          <div class="ci-desc">Una canción adecuada debería permitir respirar sin desesperación. Si las frases son
+            demasiado largas, si el texto no permite pausas naturales o si los tiempos para respirar son demasiado
+            breves, lx alumnx puede empezar a cantar con esfuerzo. A veces no hace falta descartar la canción: alcanza
+            con modificar la velocidad, fragmentar frases o proponer respiraciones pedagógicas.</div>
+          <div class="ci-key">¿La canción permite respirar de manera cómoda y organizada?</div>
+          <div class="check-row"><span class="opt opt-si">✓ Sí</span><span class="opt opt-mm">≈ Más o menos</span><span
+              class="opt opt-no">✗ No</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 4: CRITERIOS 6–10 -->
+    <div class="page">
+      <div class="logo-bar">
+        <svg class="vsym" viewBox="0 0 40 40" fill="none">
+          <circle cx="20" cy="20" r="19" stroke="#A80D2E" stroke-width="1.5" />
+          <path d="M12 13 L20 28 L28 13" stroke="#A80D2E" stroke-width="2" fill="none" stroke-linecap="round"
+            stroke-linejoin="round" />
+          <circle cx="20" cy="30" r="2" fill="#A80D2E" />
+        </svg>
+        <div class="logo-text">OWN YOUR VOICE</div>
+        <div class="logo-right">Checklist · Criterios 6–10</div>
+      </div>
+      <div class="page-tag">Checklist de diagnóstico</div>
+
+      <div class="ci">
+        <div class="ci-num">06</div>
+        <div class="ci-body">
+          <div class="ci-title">¿La letra convoca a esa edad?</div>
+          <div class="ci-desc">El repertorio no es solamente sonido. También es palabra, imagen, emoción e identidad.
+            Una canción puede ser musicalmente simple, pero no tener ningún vínculo con el mundo interno de quien la
+            canta. Preguntate si la letra puede ser comprendida, disfrutada y habitada por esa infancia o adolescencia.
+            No se trata de infantilizar el repertorio, sino de elegir canciones que tengan sentido para esa etapa.</div>
+          <div class="ci-key">¿La letra puede ser comprendida, apropiada y disfrutada por quien la va a cantar?</div>
+          <div class="check-row"><span class="opt opt-si">✓ Sí</span><span class="opt opt-mm">≈ Más o menos</span><span
+              class="opt opt-no">✗ No</span></div>
+        </div>
+      </div>
+
+      <div class="ci">
+        <div class="ci-num">07</div>
+        <div class="ci-body">
+          <div class="ci-title">¿El contenido emocional es adecuado?</div>
+          <div class="ci-desc">Hay canciones con textos cargados de angustia, violencia, abandono, deseo adulto, pérdida
+            o conflictos emocionales complejos. En algunos contextos pueden trabajarse con mucho cuidado, pero no
+            deberían aparecer por inercia, moda o gusto personal del adultx (o de lxs adultxs de referencia de esx niñx
+            o adolescente). El repertorio también educa la sensibilidad. Por eso, es importante preguntarnos qué
+            imágenes, emociones y experiencias estamos invitando a cantar.</div>
+          <div class="ci-key">¿El contenido emocional de esta canción es adecuado para la edad y el contexto?</div>
+          <div class="check-row"><span class="opt opt-si">✓ Sí</span><span class="opt opt-mm">≈ Más o menos</span><span
+              class="opt opt-no">✗ No</span></div>
+        </div>
+      </div>
+
+      <div class="ci">
+        <div class="ci-num">08</div>
+        <div class="ci-body">
+          <div class="ci-title">¿La melodía puede memorizarse con facilidad?</div>
+          <div class="ci-desc">Una canción pedagógicamente útil no tiene que ser aburrida, pero sí debería tener algún
+            grado de claridad y predictibilidad. Cuando una melodía es demasiado impredecible, extensa o difícil de
+            recordar, la atención queda atrapada en "acordarse cómo era". En cambio, una melodía memorizable libera
+            energía mental para concentrarnos en la voz, el cuerpo, la expresión, la afinación, la escucha y el vínculo
+            con el grupo.</div>
+          <div class="ci-key">¿Esta canción permite aprender con fluidez o requiere demasiado esfuerzo de memoria?</div>
+          <div class="check-row"><span class="opt opt-si">✓ Sí</span><span class="opt opt-mm">≈ Más o menos</span><span
+              class="opt opt-no">✗ No</span></div>
+        </div>
+      </div>
+
+      <div class="ci">
+        <div class="ci-num">09</div>
+        <div class="ci-body">
+          <div class="ci-title">¿La canción puede adaptarse a distintos niveles?</div>
+          <div class="ci-desc">Un buen repertorio pedagógico tiene algo muy valioso: puede crecer junto con quien canta.
+            Tal vez al comienzo se canta de forma sencilla. Luego se pueden sumar dinámicas, movimientos, juegos,
+            segundas voces, cambios expresivos, acompañamientos, percusión corporal o pequeñas variaciones. Esto permite
+            que la canción no sea solo "un tema para cantar", sino una herramienta de proceso.</div>
+          <div class="ci-key">¿Esta canción permite empezar simple y sumar complejidad de manera progresiva?</div>
+          <div class="check-row"><span class="opt opt-si">✓ Sí</span><span class="opt opt-mm">≈ Más o menos</span><span
+              class="opt opt-no">✗ No</span></div>
+        </div>
+      </div>
+
+      <div class="ci">
+        <div class="ci-num">10</div>
+        <div class="ci-body">
+          <div class="ci-title">¿Habilita el juego y el deseo de cantar?</div>
+          <div class="ci-desc">Cantar también es jugar. Especialmente en el trabajo con infancias y adolescencias, el
+            repertorio debería abrir una puerta a la curiosidad, la imaginación, el cuerpo, la exploración y el
+            disfrute. Una canción adecuada no solo "sale bien". También invita a querer cantar. El deseo de cantar es
+            parte del proceso pedagógico.</div>
+          <div class="ci-key">¿Esta canción despierta ganas de cantar, explorar, imaginar o jugar?</div>
+          <div class="check-row"><span class="opt opt-si">✓ Sí</span><span class="opt opt-mm">≈ Más o menos</span><span
+              class="opt opt-no">✗ No</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 5: RESULTADOS -->
+    <div class="page">
+      <div class="logo-bar">
+        <svg class="vsym" viewBox="0 0 40 40" fill="none">
+          <circle cx="20" cy="20" r="19" stroke="#A80D2E" stroke-width="1.5" />
+          <path d="M12 13 L20 28 L28 13" stroke="#A80D2E" stroke-width="2" fill="none" stroke-linecap="round"
+            stroke-linejoin="round" />
+          <circle cx="20" cy="30" r="2" fill="#A80D2E" />
+        </svg>
+        <div class="logo-text">OWN YOUR VOICE</div>
+        <div class="logo-right">Resultado del diagnóstico</div>
+      </div>
+      <div class="page-tag">Resultado del diagnóstico</div>
+      <div class="hero-title" style="font-size:2.2rem; margin-bottom:1.25rem">Ahora revisá<br>tus respuestas</div>
+
+      <div class="r-card r-green">
+        <div class="r-head">
+          <div class="r-range">8–10</div>
+          <div>
+            <div class="r-label">Buen potencial pedagógico</div>
+            <div class="r-sub">La canción probablemente acompaña bien el proceso</div>
+          </div>
+        </div>
+        <div class="r-text">La canción probablemente tiene un buen potencial pedagógico para este alumnx, grupo o coro.
+          Eso no significa que no requiera ninguna modificación, pero sí que cuenta con varias condiciones favorables
+          para acompañar el proceso vocal. Podés usarla como base y pensar variantes: juegos, dinámicas, movimientos,
+          cambios de intensidad, preguntas expresivas o pequeñas adaptaciones.</div>
+      </div>
+
+      <div class="r-card r-amber">
+        <div class="r-head">
+          <div class="r-range">5–7</div>
+          <div>
+            <div class="r-label">Necesita mirada pedagógica más cuidadosa</div>
+            <div class="r-sub">Puede funcionar, pero requiere adaptaciones</div>
+          </div>
+        </div>
+        <div class="r-text">Antes de usarla tal como está, preguntate:</div>
+        <ul class="r-tips">
+          <li>¿La tonalidad es la adecuada para este grupo/niñx?</li>
+          <li>¿Sería conveniente bajar la velocidad?</li>
+          <li>¿Puedo agregarle respiraciones para maximizar la comodidad al cantar?</li>
+          <li>¿Puedo simplificar algún pasaje?</li>
+          <li>¿Puedo adaptar el acompañamiento para que sea más sencillo?</li>
+          <li>¿Puedo trabajar la canción completa, o solo una parte?</li>
+        </ul>
+        <div class="r-text" style="margin-top:0.5rem">No siempre hace falta descartar. A veces, el trabajo está en
+          adaptar.</div>
+      </div>
+
+      <div class="r-card r-gray">
+        <div class="r-head">
+          <div class="r-range">–5</div>
+          <div>
+            <div class="r-label">Probablemente no sea la mejor elección</div>
+            <div class="r-sub">No es que sea mala — no es oportuna para este momento</div>
+          </div>
+        </div>
+        <div class="r-text">Puede ser una canción hermosa, significativa o muy atractiva, pero quizás no sea adecuada
+          para esta voz, esta edad, este grupo o esta etapa del proceso. La pregunta no es "¿la canción es buena o
+          mala?" La pregunta es: <strong>"¿Es pedagógicamente oportuna para este momento?"</strong></div>
+      </div>
+    </div>
+
+    <!-- PAGE 6: PREGUNTA PROFUNDA + CTA -->
+    <div class="page">
+      <div class="logo-bar">
+        <svg class="vsym" viewBox="0 0 40 40" fill="none">
+          <circle cx="20" cy="20" r="19" stroke="#A80D2E" stroke-width="1.5" />
+          <path d="M12 13 L20 28 L28 13" stroke="#A80D2E" stroke-width="2" fill="none" stroke-linecap="round"
+            stroke-linejoin="round" />
+          <circle cx="20" cy="30" r="2" fill="#A80D2E" />
+        </svg>
+        <div class="logo-text">OWN YOUR VOICE</div>
+        <div class="logo-right">Próximo paso</div>
+      </div>
+      <div class="page-tag">Una pregunta más profunda</div>
+
+      <div class="dq-box">
+        <div class="dq-title">Elegir repertorio es solo una parte del trabajo</div>
+        <div class="dq-text">Detrás de cada elección aparece una pregunta más grande: <strong>¿Estoy tomando decisiones
+            pedagógicas con criterio o solo desde la intuición?</strong></div>
+        <div class="dq-text" style="margin-top:0.6rem">La intuición es valiosa. Muchas veces nace de la experiencia, la
+          sensibilidad y la escucha. Pero cuando trabajamos con voces infantiles y adolescentes, la intuición necesita
+          estar acompañada por conocimiento, estrategias y criterios claros.</div>
+        <div style="margin-top:0.75rem">
+          <div class="dq-q">¿Qué necesita esta voz ahora?</div>
+          <div class="dq-q">¿Qué puedo proponer que no implique un riesgo de esfuerzo o cansancio vocal?</div>
+          <div class="dq-q">¿Cómo acompaño el proceso de este niñx/grupo con seguridad?</div>
+          <div class="dq-q">¿Qué hago si un niñx/adolescente desafina, se tensa, se inhibe o no quiere cantar?</div>
+          <div class="dq-q">¿Cómo transformo una actividad musical en una experiencia vocal saludable y significativa?
+          </div>
+        </div>
+      </div>
+
+      <div class="intro-text" style="margin-bottom:1.25rem">Trabajar con infancias, preadolescentes y adolescentes es
+        una tarea hermosa, pero también muy especializada. No alcanza con saber enseñar música. No alcanza con dar
+        actividades divertidas. No alcanza con elegir canciones lindas. No alcanza con tener buena voluntad.
+        <strong>Hace falta construir una mirada pedagógica sobre la voz en desarrollo.</strong>
+      </div>
+
+      <div class="cta-block">
+        <div class="cta-pre">Próximo paso</div>
+        <div class="cta-title">Formación intensiva en pedagogía vocal para la infancia y la adolescencia</div>
+        <div class="cta-text">Una formación pensada para docentes de canto, profesores de música y directores de coro
+          que quieren comenzar a tomar decisiones pedagógicas más conscientes, cuidadas y efectivas.</div>
+        <a href="https://pedagogia-vocal-infantil-un9p12o.gamma.site/" class="cta-btn">Quiero conocer la formación</a>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer-bar">
+      <svg width="16" height="16" viewBox="0 0 40 40" fill="none">
+        <circle cx="20" cy="20" r="19" stroke="#A80D2E" stroke-width="1.5" />
+        <path d="M12 13 L20 28 L28 13" stroke="#A80D2E" stroke-width="2" fill="none" stroke-linecap="round"
+          stroke-linejoin="round" />
+        <circle cx="20" cy="30" r="2" fill="#A80D2E" />
+      </svg>
+      <span class="footer-text">Carolina Roisinblit | Own Your Voice</span>
+    </div>
+
+  </div>
+</body>
+
+</html>
